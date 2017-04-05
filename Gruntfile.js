@@ -40,29 +40,57 @@ module.exports = function (grunt) {
                 files: {
                     'dev/css/styles.css': 'src/less/bootstrap.less'
                 }
+            },
+
+            dist: {
+                options: {
+                    paths: ["src/styles"],
+                    plugins: [
+                        new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]})
+                    ],
+                    compress: true,
+                    sourceMap: false
+                },
+                files: {
+                    'dist/css/styles.css': 'src/less/bootstrap.less'
+                }
             }
         },
 
         processhtml: {
-            options: {
-                 process: true
-            },
-            dev: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: './src',
-                        src: ['*.html', 'pages/*.html'],
-                        dest: 'dev/',
-                        ext: '.html'
-                    }
-                ],
-            }
+                options: {
+                     process: true
+                },
+                dev: {
+                    files: [
+                        {
+                            expand: true,
+                            cwd: './src',
+                            src: ['*.html', 'pages/*.html'],
+                            dest: 'dev/',
+                            ext: '.html'
+                        }
+                    ],
+                },
+                dist: {
+                    files: [
+                        {
+                            expand: true,
+                            cwd: './src',
+                            src: ['*.html', 'pages/*.html'],
+                            dest: 'dist/',
+                            ext: '.html'
+                        }
+                    ],
+                }
         },
 
         clean: {
             dev: {
                 src: ["dev/**"]
+            },
+            dist: {
+                src: ["dist/**"]
             }
         },
 
@@ -72,6 +100,14 @@ module.exports = function (grunt) {
                     {expand: true, cwd: "src/img", src:["**"], dest: "dev/img"},
                     {expand: true, cwd: "src/js", src: ["**"], dest: "dev/js"},
                     {expand: true, cwd: "src/video", src: ["**"], dest: "dev/video"}
+                ]
+            },
+
+            dist: {
+                files: [
+                    {expand: true, cwd: "src/img", src:["**"], dest: "dist/img"},
+                    {expand: true, cwd: "src/js", src: ["**"], dest: "dist/js"},
+                    {expand: true, cwd: "src/video", src: ["**"], dest: "dist/video"}
                 ]
             },
             img: {
@@ -87,13 +123,15 @@ module.exports = function (grunt) {
         },
 
         connect: {
+
             server: {
                 options: {
-                    port: 8080,
+                    port: 9000,
                     hostname: "*",
                     base: "dev"
                 }
             }
+
         }
 
     });
@@ -102,7 +140,14 @@ module.exports = function (grunt) {
         'clean:dev',
         'copy:dev',
         'less:dev',
-        'processhtml',
+        'processhtml:dev',
         'connect',
         'watch']);
+
+    grunt.registerTask('dist', [
+        'clean:dist',
+        'copy:dist',
+        'less:dist',
+        'processhtml:dist',
+        'connect']);
 };
