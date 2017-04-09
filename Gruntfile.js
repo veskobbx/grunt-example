@@ -169,5 +169,7 @@ module.exports = function (grunt) {
         'copy:dist',
         'less:dist',
         'htmlmin:dist',
-        'connect']);
+        'connect',
+        'watch'   //сървъра неще да живей. стартира и спира!
+        ]);
 };
