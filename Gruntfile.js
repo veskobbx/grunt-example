@@ -12,6 +12,10 @@ module.exports = function (grunt) {
                 files: ['src/less/**/*.less'],
                 tasks: ['less:dev']
             },
+            sass: {
+                files: ['src/sass/**/*.scss'],
+                tasks: ['sass:dev']
+            },
             processhtml: {
                 files: ['src/**/*.html'],
                 tasks: ['processhtml:dev']
@@ -53,6 +57,27 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'dist/css/styles.css': 'src/less/bootstrap.less'
+                }
+            }
+        },
+
+        sass: {
+            dev: {
+                options: {
+                    sourcemap: 'inline',
+                    style: 'expanded'
+                },
+                    files: {
+                    'dev/css/sass_style.css': 'src/sass/bootstrap.scss'       // 'destination': 'source'
+                }
+            },
+            dist: {
+                options: {
+                    sourcemap: 'none',
+                    style: 'compressed'
+                },
+                    files: {
+                    'dist/css/sass_style.css': 'src/sass/bootstrap.scss',       // 'destination': 'source'
                 }
             }
         },
@@ -140,6 +165,7 @@ module.exports = function (grunt) {
         'clean:dev',
         'copy:dev',
         'less:dev',
+        'sass:dev',
         'processhtml:dev',
         'connect',
         'watch']);
@@ -148,6 +174,7 @@ module.exports = function (grunt) {
         'clean:dist',
         'copy:dist',
         'less:dist',
+        'sass:dist',
         'processhtml:dist',
         'connect']);
 };
