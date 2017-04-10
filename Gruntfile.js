@@ -2,7 +2,7 @@ module.exports = function (grunt) {
     'use strict';
 
     require('load-grunt-tasks')(grunt);
-
+   
     grunt.initConfig({
 
 
@@ -157,9 +157,23 @@ module.exports = function (grunt) {
                 }
             }
 
-        }
+        },
+
+        htmlmin: {                                     
+            dist: {                                      
+                options: {                                 
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: {                                   
+                    'dist/index.html': 'dist/index.html'    
+                }
+            }
+        }    
 
     });
+
+grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
     grunt.registerTask('default', [
         'clean:dev',
@@ -176,5 +190,9 @@ module.exports = function (grunt) {
         'less:dist',
         'sass:dist',
         'processhtml:dist',
+        'htmlmin:dist',
         'connect']);
+
+    grunt.registerTask('default', [
+        'htmlmin:dist']);
 };
