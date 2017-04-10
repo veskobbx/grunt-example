@@ -85,6 +85,25 @@ module.exports = function (grunt) {
                 }
         },
 
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: {
+                    'dist/index.html': 'dev/index.html',
+                    // 'dist/contact.html': 'dev/contact.html'
+                }
+            },
+            dev: {
+                files: {
+                    'dev/index.html': 'src/index.html',
+                    // 'dist/contact.html': 'src/contact.html'
+                }
+            }
+        },
+
         clean: {
             dev: {
                 src: ["dev/**"]
@@ -141,6 +160,7 @@ module.exports = function (grunt) {
         'copy:dev',
         'less:dev',
         'processhtml:dev',
+        'htmlmin:dev',
         'connect',
         'watch']);
 
@@ -148,6 +168,8 @@ module.exports = function (grunt) {
         'clean:dist',
         'copy:dist',
         'less:dist',
-        'processhtml:dist',
-        'connect']);
+        'htmlmin:dist',
+        'connect',
+        'watch'   //сървъра неще да живей. стартира и спира!
+        ]);
 };
