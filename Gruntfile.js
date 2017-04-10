@@ -5,7 +5,6 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
 
-
         watch: {
 
             less: {
@@ -157,7 +156,19 @@ module.exports = function (grunt) {
                 }
             }
 
-        }
+        },
+
+        htmlmin: {                                     // Task
+            dist: {                                      // Target
+              options: {                                 // Target options
+                removeComments: true,
+                collapseWhitespace: true
+              },
+              files: {                                   // Dictionary of files
+                'dist/index.html': 'dist/index.html',     // 'destination': 'source'
+              }
+            }
+          }
 
     });
 
@@ -176,5 +187,6 @@ module.exports = function (grunt) {
         'less:dist',
         'sass:dist',
         'processhtml:dist',
+        'htmlmin:dist',
         'connect']);
 };
