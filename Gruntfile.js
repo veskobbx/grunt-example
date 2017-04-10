@@ -67,7 +67,7 @@ module.exports = function (grunt) {
                     style: 'expanded'
                 },
                     files: {
-                    'dev/css/sass_style.css': 'src/sass/bootstrap.scss'       // 'destination': 'source'
+                    'dev/css/sass_style.css': 'src/sass/main.scss'       // 'destination': 'source'
                 }
             },
             dist: {
