@@ -2,7 +2,7 @@ module.exports = function (grunt) {
     'use strict';
 
     require('load-grunt-tasks')(grunt);
-
+   
     grunt.initConfig({
 
 
@@ -11,6 +11,10 @@ module.exports = function (grunt) {
             less: {
                 files: ['src/less/**/*.less'],
                 tasks: ['less:dev']
+            },
+            sass: {
+                files: ['src/sass/**/*.scss'],
+                tasks: ['sass:dev']
             },
             processhtml: {
                 files: ['src/**/*.html'],
@@ -53,6 +57,27 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'dist/css/styles.css': 'src/less/bootstrap.less'
+                }
+            }
+        },
+
+        sass: {
+            dev: {
+                options: {
+                    sourcemap: 'inline',
+                    style: 'expanded'
+                },
+                    files: {
+                    'dev/css/sass_style.css': 'src/sass/bootstrap.scss'       // 'destination': 'source'
+                }
+            },
+            dist: {
+                options: {
+                    sourcemap: 'none',
+                    style: 'compressed'
+                },
+                    files: {
+                    'dist/css/sass_style.css': 'src/sass/bootstrap.scss',       // 'destination': 'source'
                 }
             }
         },
@@ -132,14 +157,29 @@ module.exports = function (grunt) {
                 }
             }
 
-        }
+        },
+
+        htmlmin: {                                     
+            dist: {                                      
+                options: {                                 
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: {                                   
+                    'dist/index.html': 'dist/index.html'    
+                }
+            }
+        }    
 
     });
+
+grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
     grunt.registerTask('default', [
         'clean:dev',
         'copy:dev',
         'less:dev',
+        'sass:dev',
         'processhtml:dev',
         'connect',
         'watch']);
@@ -148,6 +188,11 @@ module.exports = function (grunt) {
         'clean:dist',
         'copy:dist',
         'less:dist',
+        'sass:dist',
         'processhtml:dist',
+        'htmlmin:dist',
         'connect']);
+
+    grunt.registerTask('default', [
+        'htmlmin:dist']);
 };
