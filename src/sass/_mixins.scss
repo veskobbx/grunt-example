@@ -1,0 +1,28 @@
+// .clearfix {
+//     &:after,
+//     &:before {
+//         content: '';
+//         display: block;
+//         clear: both;
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+@mixin clearfix {
+    &:after,
+    &:before {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}

@@ -1,10 +1,21 @@
 .footer {
-    background: $main-brang-color;
+    background: $third-brand-color-darker;
+    color: $third-brand-color;
+    @include clearfix;
 
-    &.blue {
+    &.blue { // & = .footer
         background: blue;
 
-        &.red {
+        &.red { // & = .footer.blue
+            background: red;
+        }
+    }
+
+
+    .blue {
+        background: blue;
+
+        .red {
             background: red;
         }
     }
@@ -16,10 +27,21 @@
     h2 { /*.footer h2*/
         color: #288728;
         margin: 20px 0 0;
+        background: url('./../img/some-image.jpg') no-repeat 0 0;
 
         a { //.footer h2 a
             text-decoration: underline;
         }
+    }
+
+    p {
+
+        // example of math functions
+        color: $main-brand-color;
+        margin: $paragraph-big-mg;
+        width: calc(99% + 5px);
+        padding: $paragraph-big-mg + $paragraph-small-mg;
+        border: $paragraph-big-mg + 5px;
     }
 }
 
@@ -32,7 +54,6 @@
 
 .wrap p {
     color: #36a936;
-    margin: 10px;
 }
 
 .horizont-line {

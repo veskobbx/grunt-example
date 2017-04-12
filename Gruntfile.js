@@ -76,7 +76,7 @@ module.exports = function (grunt) {
                     style: 'compressed'
                 },
                     files: {
-                    'dist/css/sass_style.css': 'src/sass/bootstrap.scss',       // 'destination': 'source'
+                    'dist/css/sass_style.css': 'src/sass/main.scss',       // 'destination': 'source'
                 }
             }
         },
