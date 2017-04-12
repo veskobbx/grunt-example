@@ -26,3 +26,13 @@
         clear: both;
     }
 }
+
+
+@mixin btn-style ($bg-color, $font-color, $border-color) {
+    background: $bg-color;
+    color: $font-color;
+    border: $border-color;
+}
+
+
+

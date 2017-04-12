@@ -1,6 +1,7 @@
 .footer {
     background: $third-brand-color-darker;
     color: $third-brand-color;
+
     @include clearfix;
 
     &.blue { // & = .footer
@@ -42,6 +43,27 @@
         width: calc(99% + 5px);
         padding: $paragraph-big-mg + $paragraph-small-mg;
         border: $paragraph-big-mg + 5px;
+    }
+}
+
+.btn {
+
+    display: inline-block;
+
+    @include btn-style($third-brand-color, #fff, red);
+    // какво никне от функцията:
+    // background: #000;
+    // color: #fff;
+    // border-color: red;
+
+    &.info {
+
+        @include btn-style(blue, #fff, green);
+
+    }
+
+    &.submit {
+        @include btn-style(gray, #fff, #c1c1c1);
     }
 }
 
