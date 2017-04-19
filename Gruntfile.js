@@ -5,7 +5,6 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
 
-
         watch: {
 
             less: {
@@ -68,7 +67,7 @@ module.exports = function (grunt) {
                     style: 'expanded'
                 },
                     files: {
-                    'dev/css/sass_style.css': 'src/sass/bootstrap.scss'       // 'destination': 'source'
+                    'dev/css/sass_style.css': 'src/sass/main.scss'       // 'destination': 'source'
                 }
             },
             dist: {
@@ -77,7 +76,7 @@ module.exports = function (grunt) {
                     style: 'compressed'
                 },
                     files: {
-                    'dist/css/sass_style.css': 'src/sass/bootstrap.scss',       // 'destination': 'source'
+                    'dist/css/sass_style.css': 'src/sass/main.scss',       // 'destination': 'source'
                 }
             }
         },
@@ -157,7 +156,19 @@ module.exports = function (grunt) {
                 }
             }
 
-        }
+        },
+
+        htmlmin: {                                     // Task
+            dist: {                                      // Target
+              options: {                                 // Target options
+                removeComments: true,
+                collapseWhitespace: true
+              },
+              files: {                                   // Dictionary of files
+                'dist/index.html': 'dist/index.html',     // 'destination': 'source'
+              }
+            }
+          }
 
     });
 
@@ -176,5 +187,6 @@ module.exports = function (grunt) {
         'less:dist',
         'sass:dist',
         'processhtml:dist',
+        'htmlmin:dist',
         'connect']);
 };

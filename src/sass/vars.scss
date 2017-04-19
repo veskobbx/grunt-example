@@ -1,0 +1,18 @@
+// branding color pallete
+$main-brand-color: #54d154;
+
+$secondary-brand-color: #c1c1c1;
+
+$third-brand-color: #333333;
+
+$black: #000; // DONT DO VARS LIKE THIS
+
+// margins typography
+$paragraph-big-mg: 20px;
+
+$paragraph-small-mg: 10px;
+
+// color functions
+// http://sass-lang.com/documentation/Sass/Script/Functions.html
+$third-brand-color-darker: darken($third-brand-color, 10);
+$brand-mix-color: $secondary-brand-color + $third-brand-color;
