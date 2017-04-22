@@ -89,8 +89,8 @@ module.exports = function (grunt) {
                     files: [
                         {
                             expand: true,
-                            cwd: './src',
-                            src: ['*.html', 'pages/*.html'],
+                            cwd: 'src',
+                            src: ['*.html', 'pages/*.html'], //защо от папка пейджес???
                             dest: 'dev/',
                             ext: '.html'
                         }
@@ -175,18 +175,6 @@ module.exports = function (grunt) {
                 }
             }
 
-        },
-
-        htmlmin: {                                     // Task
-            dist: {                                      // Target
-              options: {                                 // Target options
-                removeComments: true,
-                collapseWhitespace: true
-              },
-              files: {                                   // Dictionary of files
-                'dist/index.html': 'dist/index.html',     // 'destination': 'source'
-              }
-            }
         }
 
     });
@@ -209,3 +197,4 @@ module.exports = function (grunt) {
         'processhtml:dist',
         'htmlmin:dist',
         'connect']);
+}
