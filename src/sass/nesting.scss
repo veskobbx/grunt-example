@@ -1,3 +1,84 @@
+
+.what-we-do {
+    text-align: center;
+    background: $light;
+    
+    .info-wraper {
+        display: flex;
+        h2 {
+            color: $icons-color;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .info-item { 
+            display: block;
+            float: left;
+            flex: 1 1 auto;
+            .info-text {
+                color: $icons-color;
+                font-size: 15px;
+                max-width: 257px;
+                display: block;
+                margin: 0 auto;
+                padding-bottom: 26px;
+            }
+            .btn {
+                display: inline-block;
+                text-decoration: none;
+                color: $light;
+                text-align: center;
+                background-color: #54d154;
+                padding: 10px 20px;
+                border-radius: 26px;
+                margin-bottom: 71px; 
+                width: auto;
+                height: auto; 
+            }
+
+            .icon-wrap {
+                display: inline-block;
+                padding: 50px;
+                background-color: #e1f3e1;
+                border-radius: 25px;
+            }
+
+        }
+    }
+
+    .heading {
+        position: relative;
+        font-size: 21px;
+        font-weight: 400;
+        line-height: 21px;
+        text-transform: uppercase;
+        display: block;
+        color: $icons-color;
+        letter-spacing: 3px;
+        margin-top: 40px;
+        margin-bottom: 69px;
+
+        &:after {
+            content: "";
+            display: block;
+            width: 43px;
+            height: 2px;
+            background-color: $icons-color;
+            margin: 0 auto;
+            position: absolute;
+            left: 50%;
+            bottom: 18px;
+            transform: translate(-50%, -50%);       
+        }
+    }
+    .sub-heading {
+        display: block;
+        font-size: 15px;
+        color: #b7b3b3;
+        text-transform: initial;
+        margin-top: 9px;
+        letter-spacing: initial;
+    }
+}
 .footer {
     background: $third-brand-color-darker;
     color: $third-brand-color;
