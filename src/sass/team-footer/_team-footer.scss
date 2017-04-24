@@ -1,0 +1,85 @@
+.footer {
+	background: $main-brand-color;
+
+	h2 {
+		color: #288728;
+		margin: 20px 0 0;
+	}
+}
+
+.wrap	{
+	display: block;
+	background: $main-brand-color;
+	text-align: center;
+	padding-top: 20px;
+
+	p {
+		color: #36a936;
+		margin: 10px;
+	}
+}
+
+.horizont-line {
+	height: 2px;
+	width: 45px;
+	background: $color-footer-bg-dark;
+	text-align: center;
+}
+
+.content {
+	box-sizing: border-box;
+	@include flex;
+	@include justify-content(space-betwee);
+	margin: 125px 175px;
+}
+
+.team {
+	width: 100px;
+	height: 30px;
+	border-radius: 30px;
+	@include flex;
+	@include flex-direction('row');
+
+	a {
+		text-decoration: none;
+		margin-right: 10px;
+	}
+}
+
+.team-1 {
+	@include flex;
+	flex-direction: column;
+	align-items: center;
+
+	p {
+		color: #f4fcf4;
+	}
+}
+
+.vertical-line {
+	height: 65px;
+	width: 2px;
+	background: $color-footer-bg-dark;
+	@include flex(inline);
+}
+
+.bottom-team-present {
+	background: $color-btn-main;
+	@include flex(!important);
+	@include justify-content(center);
+	padding: 20px;
+}
+
+.button-team  {
+	border: 2px solid;
+	width: 15%;
+	border-radius: 30px;
+	// background:  $main-brand-color;
+	padding: 10px;
+	@include btn-style($main-brand-color, #f4fcf4, $color-btn-main);
+
+	a {
+		// color: #f4fcf4;
+		text-decoration: none;
+	}
+}
