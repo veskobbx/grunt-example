@@ -197,4 +197,6 @@ module.exports = function (grunt) {
         'processhtml:dist',
         'htmlmin:dist',
         'connect']);
-}
+
+};
+
