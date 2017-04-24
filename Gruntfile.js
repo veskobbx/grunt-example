@@ -5,12 +5,15 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
 
-
         watch: {
 
             less: {
                 files: ['src/less/**/*.less'],
                 tasks: ['less:dev']
+            },
+            sass: {
+                files: ['src/sass/**/*.scss'],
+                tasks: ['sass:dev']
             },
             processhtml: {
                 files: ['src/**/*.html'],
@@ -57,6 +60,27 @@ module.exports = function (grunt) {
             }
         },
 
+        sass: {
+            dev: {
+                options: {
+                    sourcemap: 'inline',
+                    style: 'expanded'
+                },
+                    files: {
+                    'dev/css/sass_style.css': 'src/sass/main.scss'       // 'destination': 'source'
+                }
+            },
+            dist: {
+                options: {
+                    sourcemap: 'none',
+                    style: 'compressed'
+                },
+                    files: {
+                    'dist/css/sass_style.css': 'src/sass/main.scss',       // 'destination': 'source'
+                }
+            }
+        },
+
         processhtml: {
                 options: {
                      process: true
@@ -83,6 +107,25 @@ module.exports = function (grunt) {
                         }
                     ],
                 }
+        },
+
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: {
+                    'dist/index.html': 'dev/index.html',
+                    // 'dist/contact.html': 'dev/contact.html'
+                }
+            },
+            dev: {
+                files: {
+                    'dev/index.html': 'src/index.html',
+                    // 'dist/contact.html': 'src/contact.html'
+                }
+            }
         },
 
         clean: {
@@ -132,7 +175,19 @@ module.exports = function (grunt) {
                 }
             }
 
-        }
+        },
+
+        htmlmin: {                                     // Task
+            dist: {                                      // Target
+              options: {                                 // Target options
+                removeComments: true,
+                collapseWhitespace: true
+              },
+              files: {                                   // Dictionary of files
+                'dist/index.html': 'dist/index.html',     // 'destination': 'source'
+              }
+            }
+          }
 
     });
 
@@ -140,7 +195,9 @@ module.exports = function (grunt) {
         'clean:dev',
         'copy:dev',
         'less:dev',
+        'sass:dev',
         'processhtml:dev',
+        'htmlmin:dev',
         'connect',
         'watch']);
 
@@ -148,6 +205,10 @@ module.exports = function (grunt) {
         'clean:dist',
         'copy:dist',
         'less:dist',
+        'sass:dist',
         'processhtml:dist',
+        'htmlmin:dist',
         'connect']);
+
 };
+
