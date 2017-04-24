@@ -7,10 +7,6 @@ module.exports = function (grunt) {
 
         watch: {
 
-            less: {
-                files: ['src/less/**/*.less'],
-                tasks: ['less:dev']
-            },
             sass: {
                 files: ['src/sass/**/*.scss'],
                 tasks: ['sass:dev']
@@ -26,37 +22,6 @@ module.exports = function (grunt) {
             js: {
                 files: ['src/js/**/*'],
                 tasks: ['copy:js']
-            }
-        },
-
-        less: {
-            dev: {
-                options: {
-                    paths: ["src/styles"],
-                    plugins: [
-                        new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]})
-                    ],
-                    compress: false,
-                    sourceMap: true,
-                    sourceMapFileInline: true
-                },
-                files: {
-                    'dev/css/styles.css': 'src/less/bootstrap.less'
-                }
-            },
-
-            dist: {
-                options: {
-                    paths: ["src/styles"],
-                    plugins: [
-                        new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]})
-                    ],
-                    compress: true,
-                    sourceMap: false
-                },
-                files: {
-                    'dist/css/styles.css': 'src/less/bootstrap.less'
-                }
             }
         },
 
@@ -182,7 +147,6 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'clean:dev',
         'copy:dev',
-        'less:dev',
         'sass:dev',
         'processhtml:dev',
         'htmlmin:dev',
@@ -192,7 +156,6 @@ module.exports = function (grunt) {
     grunt.registerTask('dist', [
         'clean:dist',
         'copy:dist',
-        'less:dist',
         'sass:dist',
         'processhtml:dist',
         'htmlmin:dist',
