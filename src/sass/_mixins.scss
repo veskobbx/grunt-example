@@ -13,10 +13,17 @@
 
 
 
+@mixin flex($display,$direction){
+	display:$display;
+	flex-direction:$direction;
+}
 
-
-
-
+@mixin box($margin,$border,$border-radius,$padding){
+	margin:$margin;
+	border:$border;
+	border-radius:$border-radius;
+	padding:$padding;
+}
 
 @mixin clearfix {
     &:after,
