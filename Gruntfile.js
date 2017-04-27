@@ -32,7 +32,8 @@ module.exports = function (grunt) {
                     style: 'expanded'
                 },
                     files: {
-                    'dev/css/bootstrap.css': 'src/sass/bootstrap.scss'       // 'destination': 'source'
+                    'dev/css/bootstrap.css': 'src/sass/bootstrap.scss',
+                    'dev/css/bootstrap-grid.css': 'src/sass/bootstrap-grid.scss'
                 }
             },
             dist: {
@@ -55,7 +56,7 @@ module.exports = function (grunt) {
                         {
                             expand: true,
                             cwd: 'src',
-                            src: ['*.html', 'pages/*.html'], //защо от папка пейджес???
+                            src: ['*.html'],
                             dest: 'dev/',
                             ext: '.html'
                         }

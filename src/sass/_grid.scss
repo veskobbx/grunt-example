@@ -51,3 +51,10 @@
 @if $enable-grid-classes {
   @include make-grid-columns();
 }
+
+
+// custom style
+[class^="col"] {
+  background: $gray-dark;
+  border: 1px solid $hr-border-color;
+}
