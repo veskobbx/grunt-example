@@ -6,8 +6,8 @@
  */
 
 // Core variables and mixins
-@import "custom";
 @import "variables";
+@import "custom";
 @import "mixins";
 
 @import "print";
@@ -49,6 +49,7 @@
 @import "tooltip";
 @import "popover";
 @import "carousel";
+@import "my-awesome-module";
 
 // Utility classes
 @import "utilities";
