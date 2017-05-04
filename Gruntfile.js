@@ -150,7 +150,6 @@ module.exports = function (grunt) {
         'copy:dev',
         'sass:dev',
         'processhtml:dev',
-        'htmlmin:dev',
         'connect',
         'watch']);
 
