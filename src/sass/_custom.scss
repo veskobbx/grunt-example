@@ -2,3 +2,19 @@
 //
 // Copy variables from `_variables.scss` to this file to override default values
 // without modifying source files.
+
+[class^="col-"]:nth-child(1) {
+    background: $red;
+}
+
+[class^="col-"]:nth-child(2) {
+    background: $orange;
+}
+
+[class^="col-"]:nth-child(3) {
+    background: $yellow;
+}
+
+[class^="col-"]:nth-child(4) {
+    background: $green;
+}
